@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpamShield AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Offline Spam Intelligence Engine</p>
+          <h1>SpamShield AI</h1>
+          <p class="hero-text">
+            Detect spam messages with a lightweight Naive Bayes model, explain the
+            decision, and keep everything on-device friendly for future Android,
+            iPhone, and Windows deployment.
+          </p>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-label">Model</span>
+              <strong>CountVectorizer + MultinomialNB</strong>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Dataset</span>
+              <strong>UCI SMS Spam Collection</strong>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Mode</span>
+              <strong>Explainable + Offline-ready</strong>
+            </div>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="orb orb-one"></div>
+          <div class="orb orb-two"></div>
+          <div class="device-card">
+            <span class="device-label">Live capability</span>
+            <h2>Responsive web demo</h2>
+            <p>
+              Paste any message, get a spam score, confidence breakdown, and the
+              indicator words that pushed the model toward its prediction.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="panel input-panel">
+          <div class="panel-header">
+            <div>
+              <p class="section-tag">Analyze</p>
+              <h2>Check a message</h2>
+            </div>
+            <button id="sampleButton" class="secondary-button" type="button">
+              Load sample
+            </button>
+          </div>
+
+          <label class="field-label" for="messageInput">Message text</label>
+          <textarea
+            id="messageInput"
+            placeholder="Paste an SMS or email-like message here..."
+            rows="9"
+          ></textarea>
+
+          <div class="button-row">
+            <button id="analyzeButton" class="primary-button" type="button">
+              Detect Spam
+            </button>
+            <button id="clearButton" class="ghost-button" type="button">
+              Clear
+            </button>
+          </div>
+
+          <div class="quick-examples">
+            <span>Try examples:</span>
+            <button class="chip" type="button" data-sample="Congratulations! You have won a free trip. Claim your reward now.">
+              Prize scam
+            </button>
+            <button class="chip" type="button" data-sample="Hey, I am outside your house. Can you come down?">
+              Normal message
+            </button>
+            <button class="chip" type="button" data-sample="URGENT! Verify your account immediately to avoid service suspension.">
+              Urgency
+            </button>
+          </div>
+        </section>
+
+        <section class="panel results-panel">
+          <div class="panel-header">
+            <div>
+              <p class="section-tag">Result</p>
+              <h2>Prediction dashboard</h2>
+            </div>
+            <span id="statusBadge" class="status-badge neutral">Waiting</span>
+          </div>
+
+          <div class="summary-grid">
+            <article class="metric-card accent-card">
+              <span class="metric-label">Prediction</span>
+              <strong id="predictionValue">-</strong>
+              <small id="riskValue">Risk level: -</small>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Spam probability</span>
+              <strong id="spamValue">0.0000</strong>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Ham probability</span>
+              <strong id="hamValue">0.0000</strong>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Matched features</span>
+              <strong id="featuresValue">0</strong>
+            </article>
+          </div>
+
+          <div class="progress-block">
+            <div class="progress-meta">
+              <span>Spam confidence meter</span>
+              <span id="meterValue">0%</span>
+            </div>
+            <div class="progress-track">
+              <div id="progressBar" class="progress-bar"></div>
+            </div>
+          </div>
+
+          <div class="detail-grid">
+            <article class="detail-card">
+              <div class="detail-head">
+                <h3>Top spam indicators</h3>
+                <p>Words with the strongest spam influence.</p>
+              </div>
+              <ul id="indicatorList" class="indicator-list">
+                <li class="empty-state">Run an analysis to see indicator words.</li>
+              </ul>
+            </article>
+
+            <article class="detail-card">
+              <div class="detail-head">
+                <h3>Normalized text</h3>
+                <p>How the message looks after preprocessing.</p>
+              </div>
+              <pre id="cleanedText" class="cleaned-box">-</pre>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
