@@ -7,7 +7,7 @@ from spam_detector import explain_prediction, load_dataset, train_model, DATASET
 class SpamDetectorApp:
     def __init__(self, root: tk.Tk) -> None:
         self.root = root
-        self.root.title("Spam Detector Demo")
+        self.root.title("Satark Sandesh")
         self.root.geometry("760x620")
         self.root.configure(bg="#f4f7fb")
 
@@ -19,7 +19,7 @@ class SpamDetectorApp:
     def build_ui(self) -> None:
         title = tk.Label(
             self.root,
-            text="Offline Spam Detection Demo",
+            text="Satark Sandesh",
             font=("Segoe UI", 20, "bold"),
             bg="#f4f7fb",
             fg="#12344d",
@@ -28,7 +28,7 @@ class SpamDetectorApp:
 
         subtitle = tk.Label(
             self.root,
-            text="Enter a message to classify it as spam or ham with explainable indicators.",
+            text="Paste a message to check whether it looks safe or suspicious.",
             font=("Segoe UI", 10),
             bg="#f4f7fb",
             fg="#486581",

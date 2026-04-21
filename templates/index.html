@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SpamShield AI</title>
+    <title>Satark Sandesh</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,18 +14,50 @@
   </head>
   <body>
     <div class="page-shell">
+      <nav class="topbar">
+        <div class="brand-wrap">
+          <div class="bharat-logo" aria-hidden="true">
+            <span class="logo-band saffron"></span>
+            <span class="logo-band white">
+              <span class="logo-chakra"></span>
+            </span>
+            <span class="logo-band green"></span>
+          </div>
+          <div class="brand-text">
+            <strong>Satark Sandesh</strong>
+            <span>Bharat Message Safety Portal</span>
+          </div>
+        </div>
+        <div class="topbar-links">
+          <span class="nav-chip">AI Guard</span>
+          <span class="nav-chip">Live Check</span>
+          <span class="nav-chip">Trusted Demo</span>
+        </div>
+      </nav>
+
       <header class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Offline Spam Intelligence Engine</p>
-          <h1>SpamShield AI</h1>
+          <div class="tricolor-ribbon" aria-hidden="true">
+            <span class="ribbon saffron"></span>
+            <span class="ribbon white"></span>
+            <span class="ribbon green"></span>
+          </div>
+          <p class="eyebrow">Smart Message Safety Checker</p>
+          <h1>Satark Sandesh</h1>
+          <p class="brand-subtitle">A Bharat-inspired AI assistant for message safety</p>
           <p class="hero-text">
-            Detect spam messages with a lightweight Naive Bayes model, explain the
-            decision, and keep everything on-device friendly for future Android,
-            iPhone, and Windows deployment.
+            Check whether a message looks safe, risky, or spam-like in seconds.
+            Satark Sandesh explains the result in simple language so any user can
+            understand the warning signs without technical knowledge.
           </p>
+          <div class="trust-row">
+            <span class="trust-pill">Real-time check</span>
+            <span class="trust-pill">Easy explanation</span>
+            <span class="trust-pill">Responsive experience</span>
+          </div>
           <div class="hero-stats">
             <div class="stat-card">
-              <span class="stat-label">Model</span>
+              <span class="stat-label">AI Model</span>
               <strong>CountVectorizer + MultinomialNB</strong>
             </div>
             <div class="stat-card">
@@ -33,21 +65,32 @@
               <strong>UCI SMS Spam Collection</strong>
             </div>
             <div class="stat-card">
-              <span class="stat-label">Mode</span>
-              <strong>Explainable + Offline-ready</strong>
+              <span class="stat-label">Experience</span>
+              <strong>Explainable + Easy to Use</strong>
             </div>
           </div>
         </div>
         <div class="hero-panel">
           <div class="orb orb-one"></div>
           <div class="orb orb-two"></div>
+          <div class="chakra-ring" aria-hidden="true"></div>
           <div class="device-card">
-            <span class="device-label">Live capability</span>
-            <h2>Responsive web demo</h2>
+            <span class="device-label">Live demo</span>
+            <h2>Instant message safety scan</h2>
             <p>
-              Paste any message, get a spam score, confidence breakdown, and the
-              indicator words that pushed the model toward its prediction.
+              Paste any SMS, email text, or suspicious message to get a clear
+              decision, a spam risk score, and the key words that influenced it.
             </p>
+            <div class="mini-preview">
+              <div class="mini-top">
+                <span class="mini-dot"></span>
+                <span class="mini-dot"></span>
+                <span class="mini-dot"></span>
+              </div>
+              <div class="mini-line long"></div>
+              <div class="mini-line"></div>
+              <div class="mini-badge">Likely Spam</div>
+            </div>
           </div>
         </div>
       </header>
@@ -56,24 +99,28 @@
         <section class="panel input-panel">
           <div class="panel-header">
             <div>
-              <p class="section-tag">Analyze</p>
-              <h2>Check a message</h2>
+              <p class="section-tag">Message Check</p>
+              <h2>Paste your message</h2>
             </div>
             <button id="sampleButton" class="secondary-button" type="button">
-              Load sample
+              Try sample
             </button>
           </div>
+          <p class="panel-note">
+            Add any SMS, WhatsApp text, or email content. The app will classify it
+            and explain the result in simple and user-friendly language.
+          </p>
 
           <label class="field-label" for="messageInput">Message text</label>
           <textarea
             id="messageInput"
-            placeholder="Paste an SMS or email-like message here..."
+            placeholder="Paste an SMS, WhatsApp text, or email message here..."
             rows="9"
           ></textarea>
 
           <div class="button-row">
             <button id="analyzeButton" class="primary-button" type="button">
-              Detect Spam
+              Check Message
             </button>
             <button id="clearButton" class="ghost-button" type="button">
               Clear
@@ -81,16 +128,26 @@
           </div>
 
           <div class="quick-examples">
-            <span>Try examples:</span>
+            <span>Quick examples:</span>
             <button class="chip" type="button" data-sample="Congratulations! You have won a free trip. Claim your reward now.">
-              Prize scam
+              Free prize
             </button>
             <button class="chip" type="button" data-sample="Hey, I am outside your house. Can you come down?">
-              Normal message
+              Normal chat
             </button>
             <button class="chip" type="button" data-sample="URGENT! Verify your account immediately to avoid service suspension.">
-              Urgency
+              Urgent alert
             </button>
+          </div>
+          <div class="helper-grid">
+            <article class="helper-card">
+              <span class="helper-title">Works best for</span>
+              <p>Prize scams, fake offers, urgent account warnings, account verification traps, and suspicious links.</p>
+            </article>
+            <article class="helper-card">
+              <span class="helper-title">Demo tip</span>
+              <p>Try one clear spam, one safe chat, and one tricky message to show how the system handles real-world cases.</p>
+            </article>
           </div>
         </section>
 
@@ -98,34 +155,38 @@
           <div class="panel-header">
             <div>
               <p class="section-tag">Result</p>
-              <h2>Prediction dashboard</h2>
+              <h2>Safety report</h2>
             </div>
             <span id="statusBadge" class="status-badge neutral">Waiting</span>
           </div>
+          <p class="panel-note">
+            The dashboard shows the final decision, confidence split, matched words,
+            and the strongest reasons behind the prediction.
+          </p>
 
           <div class="summary-grid">
             <article class="metric-card accent-card">
-              <span class="metric-label">Prediction</span>
+              <span class="metric-label">Decision</span>
               <strong id="predictionValue">-</strong>
               <small id="riskValue">Risk level: -</small>
             </article>
             <article class="metric-card">
-              <span class="metric-label">Spam probability</span>
+              <span class="metric-label">Spam chance</span>
               <strong id="spamValue">0.0000</strong>
             </article>
             <article class="metric-card">
-              <span class="metric-label">Ham probability</span>
+              <span class="metric-label">Safe message chance</span>
               <strong id="hamValue">0.0000</strong>
             </article>
             <article class="metric-card">
-              <span class="metric-label">Matched features</span>
+              <span class="metric-label">Matched words</span>
               <strong id="featuresValue">0</strong>
             </article>
           </div>
 
           <div class="progress-block">
             <div class="progress-meta">
-              <span>Spam confidence meter</span>
+              <span>Spam risk meter</span>
               <span id="meterValue">0%</span>
             </div>
             <div class="progress-track">
@@ -136,24 +197,45 @@
           <div class="detail-grid">
             <article class="detail-card">
               <div class="detail-head">
-                <h3>Top spam indicators</h3>
-                <p>Words with the strongest spam influence.</p>
+                <h3>Why the app thinks this</h3>
+                <p>The most important words and signals behind the result.</p>
               </div>
               <ul id="indicatorList" class="indicator-list">
-                <li class="empty-state">Run an analysis to see indicator words.</li>
+                <li class="empty-state">Check a message to see the important words.</li>
               </ul>
             </article>
 
             <article class="detail-card">
               <div class="detail-head">
-                <h3>Normalized text</h3>
-                <p>How the message looks after preprocessing.</p>
+                <h3>Cleaned message</h3>
+                <p>How the text looks after the app prepares it for analysis.</p>
               </div>
               <pre id="cleanedText" class="cleaned-box">-</pre>
             </article>
           </div>
         </section>
       </main>
+      <footer class="page-footer">
+        <div class="footer-brand">
+          <strong>Satark Sandesh</strong>
+          <span>Smart message safety for everyone</span>
+        </div>
+        <div class="footer-support">
+          <div class="support-copy">
+            <span class="support-label">Need help using this website?</span>
+            <span class="support-text">Connect directly on WhatsApp for quick support.</span>
+          </div>
+          <a
+            class="whatsapp-button"
+            href="https://wa.me/919939429446"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Chat on WhatsApp
+          </a>
+          <a class="support-number" href="tel:+919939429446">+91 99394 29446</a>
+        </div>
+      </footer>
     </div>
 
     <script src="{{ url_for('static', filename='app.js') }}"></script>

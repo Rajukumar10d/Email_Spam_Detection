@@ -14,7 +14,7 @@ const indicatorList = document.getElementById("indicatorList");
 const cleanedText = document.getElementById("cleanedText");
 
 const sampleMessage =
-  "Congratulations! You have won a free vacation voucher. Click the link now to claim your reward.";
+  "Namaste! Your KYC reward is waiting. Click now to claim your free cashback offer.";
 
 function setWaitingState() {
   statusBadge.textContent = "Waiting";
@@ -26,14 +26,14 @@ function setWaitingState() {
   featuresValue.textContent = "0";
   meterValue.textContent = "0%";
   progressBar.style.width = "0%";
-  indicatorList.innerHTML = '<li class="empty-state">Run an analysis to see indicator words.</li>';
+  indicatorList.innerHTML = '<li class="empty-state">Check a message to see the important words.</li>';
   cleanedText.textContent = "-";
 }
 
 function renderIndicators(indicators) {
   if (!indicators.length) {
     indicatorList.innerHTML =
-      '<li class="empty-state">No strong spam indicators matched the learned vocabulary.</li>';
+      '<li class="empty-state">No strong suspicious words matched the learned vocabulary.</li>';
     return;
   }
 
@@ -57,13 +57,13 @@ function renderIndicators(indicators) {
 async function analyzeMessage() {
   const message = messageInput.value.trim();
   if (!message) {
-    statusBadge.textContent = "Input needed";
+    statusBadge.textContent = "Add a message";
     statusBadge.className = "status-badge neutral";
     return;
   }
 
   analyzeButton.disabled = true;
-  analyzeButton.textContent = "Analyzing...";
+  analyzeButton.textContent = "Checking...";
 
   try {
     const response = await fetch("/predict", {
@@ -80,9 +80,9 @@ async function analyzeMessage() {
     const spamPercent = Math.round(data.spam_probability * 100);
     const isSpam = data.prediction === "spam";
 
-    statusBadge.textContent = isSpam ? "Spam detected" : "Looks safe";
+    statusBadge.textContent = isSpam ? "Suspicious" : "Looks safe";
     statusBadge.className = `status-badge ${isSpam ? "spam" : "safe"}`;
-    predictionValue.textContent = isSpam ? "SPAM" : "HAM";
+    predictionValue.textContent = isSpam ? "Likely Spam" : "Likely Safe";
     riskValue.textContent = `Risk level: ${data.risk_level}`;
     spamValue.textContent = data.spam_probability.toFixed(4);
     hamValue.textContent = data.ham_probability.toFixed(4);
@@ -97,7 +97,7 @@ async function analyzeMessage() {
     indicatorList.innerHTML = `<li class="empty-state">${error.message}</li>`;
   } finally {
     analyzeButton.disabled = false;
-    analyzeButton.textContent = "Detect Spam";
+    analyzeButton.textContent = "Check Message";
   }
 }
 

@@ -1,4 +1,6 @@
-# Spam Detection Project
+# Satark Sandesh
+
+Satark Sandesh is an Indian-themed spam detection web app that checks whether a message looks safe or suspicious using NLP and Naive Bayes.
 
 This project detects spam messages automatically using NLP and a Naive Bayes model trained on the **UCI SMS Spam Collection** dataset.
 
@@ -6,8 +8,8 @@ It is designed as a strong student project with these goals:
 
 - train and evaluate a working spam detector
 - explain why a message was predicted as spam
+- present the model in a simple, user-friendly web app
 - export the model in a lightweight JSON-friendly form for future Android, iPhone, and Windows integration
-- keep inference offline and privacy-friendly
 
 ## Dataset
 
